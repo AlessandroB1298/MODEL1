@@ -1,0 +1,19 @@
+names:
+- arrow
+- hydrogen_form
+- magnesium_form
+- number_2_form
+- oxygen_form
+- placeholder_form
+- plus
+- bracket
+nc: 8
+roboflow:
+  license: CC BY 4.0
+  project: easy_molecules
+  url: https://universe.roboflow.com/alchemie/easy_molecules/dataset/3
+  version: 3
+  workspace: alchemie
+test: /home/dev/YOLO8/easy_molecules-3/test
+train: /home/dev/YOLO8/easy_molecules-3/train
+val: /home/dev/YOLO8/easy_molecules-3/valid
