@@ -1,66 +1,193 @@
-html, body {
-    background-color: black;
-    color: white;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+body {
+  background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 body video {
-    transition: filter 250ms linear;
+  transition: filter 250ms linear;
 }
 
 body.loading video {
-    filter: grayscale(1) brightness(0.25);
+  filter: grayscale(1) brightness(0.25);
 }
 
 body.loading:before {
-    content: "Loading Model...";
-    color: white;
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    top: 20px;
-    font-size: 3em;
-    font-weight: bold;
-    z-index: 100;
+  content: "Loading Model...";
+  color: white;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  font-size: 3em;
+  font-weight: bold;
+  z-index: 100;
 }
 
-html, body, video, canvas {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-video, canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
+html,
+body,
+video {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body:after {
-    content: "";
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 350px;
-    height: 150px;
-    z-index: 1;
-    background-image: url("https://uploads-ssl.webflow.com/5eca8e43c4dfff837f0f6392/5ecad58e650fb5ec53e8b811_roboflow_assets_logo_white.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom right;
+  content: "";
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 150px;
+  z-index: 1;
+  background-image: url("https://uploads-ssl.webflow.com/5eca8e43c4dfff837f0f6392/5ecad58e650fb5ec53e8b811_roboflow_assets_logo_white.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
 }
 
 #fps {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }
 
 #fps:empty {
-    display: none;
+  display: none;
 }
 
 #fps:after {
-    content: " fps";
+  content: " fps";
+}
+
+#hide {
+  margin-right: 400px;
+  width: 100%;
+  height: 100%;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  float: left;
+  position: relative;
+  justify-content: center;
+  align-items: baseline;
+  width: 100%; /* Adjust the width as desired */
+  height: 100%; /* Adjust the height as desired */
+}
+
+.video-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 75%;
+  max-height: 75%;
+  z-index: 1; /* Ensure the video is in front */
+}
+
+canvas {
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2; /* Bring the canvas to the front */
+  margin-top: 80px;
+  max-width: 75%;
+  max-height: 80%;
+}
+
+.predictions-overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 3; /* Ensure the predictions overlay is on top */
+  pointer-events: none; /* Allow interaction with the video */
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.predictions-overlay canvas {
+  position: relative;
+  z-index: 4;
+}
+
+#preview-container {
+  margin-left: 5px;
+  width: 45%;
+  height: 65%;
+  border: 5px solid #000;
+  display: inline-block;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden; /* Add this to hide any overflowing content */
+  padding: 0; /* Remove the padding */
+  box-sizing: border-box; /* Include border in the element's total width and height */
+}
+
+#preview-container img {
+  width: 200%;
+  height: 150%;
+  position: relative;
+  margin-left: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the image within the container */
+}
+
+.buttons {
+  display: flexbox;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1em;
+  padding-bottom: 2px;
+}
+button,
+a {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+  padding: 1em 2em;
+  cursor: pointer;
+  border-radius: 0.5em;
+  color: #000000;
+  text-decoration: none;
+}
+
+hide {
+  display: none;
+}
+
+#Json-container {
+  margin-left: 110px;
+  justify-content: space-between;
+  width: 45%;
+  height: 65%;
+  border: 5px solid #000;
+  display: inline-block;
+  align-items: end;
+  position: relative;
+  z-index: 2;
+  overflow: hidden; /* Add this to hide any overflowing content */
+  box-sizing: border-box;
 }
