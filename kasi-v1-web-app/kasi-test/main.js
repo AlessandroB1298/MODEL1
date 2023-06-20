@@ -108,7 +108,6 @@ $(function () {
 
     $("body").append(canvas);
   };
-
   const renderPredictions = function (predictions) {
     var dimensions = videoDimensions(video);
 

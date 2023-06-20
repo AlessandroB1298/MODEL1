@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <div id="capture" style="padding: 10px; background: #f5da55">
-      <h4 style="color: #000">Kasi Demo!</h4>
+
+    <div id="heading" style="padding: 10px; background: black">
+      <h3 style="color: yellow">Kasi Demo!</h3>
     </div>
     <meta name="viewport" content="width=640, user-scalable=no" />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js"></script>
-
+    <script src="http://127.0.0.1:5500/Users/aidanbongiorno/MODEL1/node_modules/html2canvas/dist/html2canvas.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
       integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -25,8 +24,6 @@
     ></script>
 
     <script src="https://cdn.roboflow.com/0.2.26/roboflow.js"></script>
-    <script src="/Users/aidanbongiorno/MODEL1/node_modules/html2canvas/dist/html2canvas.js"></script>
-
     <link rel="stylesheet" href="./main.css" />
     <script src="./main.js"></script>
   </head>
@@ -38,11 +35,13 @@
         <div class="predictions-overlay"></div>
       </div>
       <div id="preview-container"></div>
-      <div id="Json-container"></div>
+    <div id="loader"></div>
+    <div id="Json-container"></div>
     <div class="buttons">
       <button id="capture-screenshot">Capture</button>
-      <button id="Get_json">Get JSON</button>
+
       <a id="download-button" class="hide">Download Screenshot</a>
+            <button id="Get_json">Get JSON</button>
       <script src="index.js"></script>
     </div>
   </body>
